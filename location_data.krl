@@ -21,6 +21,9 @@ ruleset location_data {
       key = event:attr('key');
       value = event:attr('value');
     }
+    {
+      send_directive(key) with location = value;
+    }
     fired {
       set ent:my_map{key} value;
     }
