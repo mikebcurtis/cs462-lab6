@@ -20,7 +20,6 @@ ruleset location_data {
     pre {
       key = event:attr('key');
       value = event:attr('value');
-      new_map = ent:my_map || {};
     }
     fired {
       set ent:my_map{key} value;
