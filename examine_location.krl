@@ -17,9 +17,16 @@ ruleset examine_location {
 	rule show_fs_location is active {
 		select when web cloudAppSelected
 		pre {
-			checkin_map = LocationData:get_location_data("fs_checkin").encode();
+			checkin_map = LocationData:get_location_data("fs_checkin").decode();
+			venue = checkin_map.pick("$..venue");
+			city = checkin_map.pick("$..city");
+			shout = checkin_map.pick("$..shout");
+			createdAt = checkin_map.pick("$..createdAt");
 			my_html = <<
-				<p>#{checkin_map}</p>
+			        <h5>Venue: #{venue}</h5>
+			        <h5>City: #{city}</h5>
+			        <h5>Shout: #{shout}</h5>
+			        <h5>CreatedAt: #{createdAt}</h5>
 			>>;
 		}
 		{
