@@ -19,7 +19,7 @@ ruleset examine_location {
 		pre {
 			checkin_map = LocationData:get_location_data("fs_checkin").encode();
 			my_html = <<
-				<h1>#{checkin_map}</h1>
+				<p>#{checkin_map}</p>
 			>>;
 		}
 		{
