@@ -12,7 +12,7 @@ ruleset location_data {
   }
   global {
     get_location_data = function(key) {
-      ent:my_map[key];
+      ent:my_map{key};
     };
   }
   rule add_location_item {
@@ -23,7 +23,7 @@ ruleset location_data {
       new_map = ent:my_map || {};
     }
     fired {
-      set ent:my_map new_map.put([key],value)
+      set ent:my_map{key} value;
     }
   }
 }
